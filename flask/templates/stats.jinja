@@ -1,0 +1,10 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+  <ul>
+    <li>Total visits: {{ total_visits }}</li>
+    <li>Visits per day: {{ visits_per_day }}</li>
+    <li>Time per visit: {{ time_per_visit }}</li>
+    <li>Mean visited pages: {{ mean_visited_pages }}</li>
+  </ul>
+{% endblock %}

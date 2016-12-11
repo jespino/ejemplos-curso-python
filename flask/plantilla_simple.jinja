@@ -1,0 +1,12 @@
+<html>
+  <head></head>
+  <body>
+    <h1>{{ title }}</h1>
+    {% for post in posts %}
+      <section>
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+      </section>
+    {% endfor %}
+  </body>
+</html>
