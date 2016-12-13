@@ -2,8 +2,9 @@ import click
 import os
 
 @click.command()
+@click.option("--hidden", prompt=True)
 @click.argument("path")
-def listar(path, hidden):
+def listar(hidden, path):
     try:
         items = os.listdir(path)
     except OSError:

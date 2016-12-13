@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import json
 import datetime
+from responses import *
 
 ERROR = 1
 WARN = 2
@@ -34,7 +35,7 @@ def index():
         LogEntry(datetime.datetime.now(), INFO, "Info logged"),
     ]
 
-    return render_template("logs.jinja", logs=logs)
+    return Ok(render_template("logs.jinja", logs=logs))
 
 if __name__ == "__main__":
     app.run()

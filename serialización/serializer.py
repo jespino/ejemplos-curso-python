@@ -9,6 +9,10 @@ class Point(object):
 class PointSerializer(serpy.Serializer):
     x = serpy.Field()
     y = serpy.Field()
+    mean = serpy.MethodField()
+
+    def get_mean(self, obj):
+        return (obj.x + obj.y)
 
 p = Point(1, 2)
 print p
