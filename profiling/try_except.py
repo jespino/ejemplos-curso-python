@@ -25,7 +25,8 @@ def if_negativo():
     return None
 
 if __name__ == "__main__":
-    print "Try-except positivo: ", timeit.timeit("try_except_positivo()", setup="from try_except import try_except_positivo")
-    print "Try-except negativo: ", timeit.timeit("try_except_negativo()", setup="from try_except import try_except_negativo")
-    print "If positivo: ", timeit.timeit("if_positivo()", setup="from try_except import if_positivo")
-    print "If negativo", timeit.timeit("if_negativo()", setup="from try_except import if_negativo")
+    setup_expr = "from try_except import *"
+    print "Try-except positivo: ", timeit.timeit("try_except_positivo()", setup=setup_expr)
+    print "Try-except negativo: ", timeit.timeit("try_except_negativo()", setup=setup_expr)
+    print "If positivo: ", timeit.timeit("if_positivo()", setup=setup_expr)
+    print "If negativo", timeit.timeit("if_negativo()", setup=setup_expr)
