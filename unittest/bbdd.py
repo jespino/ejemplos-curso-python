@@ -1,6 +1,7 @@
 import unittest
 import sqlite3
 
+
 class DBTestCase(unittest.TestCase):
     def setUp(self):
         self.con = sqlite3.connect("ejemplo.db")
@@ -17,6 +18,7 @@ class DBTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.cur.execute("DELETE FROM points")
+        self.con.close()
 
 
 if __name__ == "__main__":

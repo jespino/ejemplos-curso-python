@@ -5,6 +5,7 @@ import datetime
 from responses import *
 import click
 import sqlite3
+import cProfile
 
 ERROR = 1
 WARN = 2
@@ -32,6 +33,8 @@ def format_datetime(value):
 
 @app.route("/logs", methods=["GET"])
 def list_logs():
+    prof = cProfile.Profile()
+    prof.enable()
     headers = {"Content-Type": "application/json"}
     conn = sqlite3.connect(app.config['DBFILE'])
     cur = conn.cursor()
@@ -49,7 +52,10 @@ def list_logs():
                 filtered_logs.append(log)
         logs = filtered_logs
 
-    return json.dumps(logs), 200, headers
+    response = json.dumps(logs), 200, headers
+    prof.disable()
+    prof.print_stats()
+    return response
 
 @app.route("/logs/<int:log_id>", methods=["GET"])
 def get_log(log_id):

@@ -9,9 +9,8 @@ def download_url_into_file(filename, url):
     fd = file(os.path.join("futures", filename), "w")
     fd.write(response.read())
     fd.close()
+    return "HOLA"
 
-
-procs = []
 with ThreadPoolExecutor(max_workers=10) as pool:
     for name, url in urls.items():
         filename = "%s.html" % name

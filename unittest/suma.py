@@ -5,6 +5,7 @@ class SumaTestCase(unittest.TestCase):
         result = 2 + 2
         self.assertEqual(result, 4)
 
+    @unittest.skipIf(False, "falla")
     def test_suma_bad(self):
         result = 2 + 2
         self.assertEqual(result, 5)
